@@ -24,7 +24,7 @@ export function TaskItem({ task }: TaskItemProps) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ completed: completed ? 1 : 0 }),
     }).then(() => router.refresh());
-  }, []);
+  }, [completed, task.id, router]);
 
   return (
     <li className="flex items-center gap-2">

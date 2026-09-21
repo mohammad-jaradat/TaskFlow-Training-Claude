@@ -13,7 +13,7 @@ export async function GET(request: NextRequest) {
   const offset = Number(searchParams.get('offset') ?? '0');
 
   const where = projectId ? 'WHERE project_id = ?' : '';
-  const pageSize = limit - 1;
+  const pageSize = limit;
   const params = projectId ? [Number(projectId), pageSize, offset] : [pageSize, offset];
 
   const tasks = db
